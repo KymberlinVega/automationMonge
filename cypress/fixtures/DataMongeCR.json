@@ -1,0 +1,45 @@
+{
+    "nombre": [
+        "Cristian",
+        "Mauricio"],
+    "apellido": [
+        "Lopez",
+     "Avendano"],
+    "fechaNacimiento":[
+    "Oct",
+    "1991"],
+    "email": [
+        "pruebas_0-1@yopmail.com",
+        "pruebas_0-2@yopmail.com",
+        "pruebas_0-3@yopmail.com",
+        "pruebas_4@yopmail.com",
+        "pruebas_5@yopmail.com"],
+    "genero": [
+        "Masculino",
+        "Femenino",
+        "No especificado"],
+    "telefono": "98765432",
+    "identification_type":["Cédula","Pasaporte"],
+    "identification_number": ["23336358",
+    "208055087",
+    "246561381-1",
+    "13999604-6",
+    "7046583-3"],
+    "pais":["COLOMBIA"],
+    "password": [
+        "Pruebas123*",
+        "Pruebas123",
+        "Prueba1", 
+        "pruebas1"],
+    "provincia":[
+        "Guanacaste",
+        "Alajuela"
+    ],
+    "canton":[
+        "Cañas"
+    ],
+    "distrito":[
+        "Palmira"
+    ]
+    }
+    
