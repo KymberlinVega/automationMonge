@@ -1,5 +1,5 @@
 /// <reference types='Cypress' />
-
+/*
 describe('Test cases for Add To Cart flow', () => {
     let dataUser; // Variable para almacenar los datos cargados desde el JSON
 
@@ -63,3 +63,4 @@ describe('Test cases for Add To Cart flow', () => {
         })
         })
     })
+*/

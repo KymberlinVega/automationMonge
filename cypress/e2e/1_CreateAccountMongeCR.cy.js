@@ -12,7 +12,7 @@ describe('Test cases for Create Account flow', () => {
 
     beforeEach(() => {
         cy.visit('https://mcstage.tiendamonge.com/default/')
-        })  
+    })
 
     context('Account creation flow', () => {
         // Test case #1: Verificar que un usuario no registrado pueda crear una cuenta
@@ -22,9 +22,7 @@ describe('Test cases for Create Account flow', () => {
             // Hacer clic en el botón de "Registrarse"
             cy.get('.register').click()
             // Rellenar el formulario de registro con datos de prueba
-            cy.get('#firstname').type(dataUser.nombre[0])
-            cy.get('#lastname').type(dataUser.apellido[0])
-            cy.get('#second_lastname').type(dataUser.apellido[1])
+            cy.fillRegisterFormWithRandomData()
             cy.get('#tipo_identificacion').select(dataUser.identification_type[1])
             cy.get('#identificacion').type(dataUser.identification_number[0])
             cy.get('#telephone').type(dataUser.telefono)
@@ -35,7 +33,6 @@ describe('Test cases for Create Account flow', () => {
             cy.get('.ui-datepicker-buttonpane > button').click()
             cy.get('#pais_nacimiento').select(dataUser.pais[0])
             cy.get('#gender').select(dataUser.genero[0])
-            cy.get('#email_address').type(dataUser.email[0])
             cy.get('#password').type(dataUser.password[0])
             cy.get('#password-confirmation').type(dataUser.password[0])
             //Hacer click en checkbox para aceptar política de privacidad de datos
@@ -83,11 +80,9 @@ describe('Test cases for Create Account flow', () => {
             // Hacer clic en el botón de "Registrarse"
             cy.get('.register').click()
             // Rellenar el formulario de registro con datos de prueba
-            cy.get('#firstname').type(dataUser.nombre[1])
-            cy.get('#lastname').type(dataUser.apellido[1])
-            cy.get('#second_lastname').type(dataUser.apellido[1])
+            cy.fillRegisterFormWithRandomData()
             cy.get('#tipo_identificacion').select(dataUser.identification_type[1])
-            cy.get('#identificacion').type(dataUser.identification_number[1])
+            //cy.get('#identificacion').type(dataUser.identification_number[1]) NO DILIGENCIAR CAMPO
             cy.get('#telephone').type(dataUser.telefono)
             cy.get('#fecha_cumple').click()
             cy.get('.ui-datepicker-month').should('be.visible').select(dataUser.fechaNacimiento[0])
@@ -96,7 +91,6 @@ describe('Test cases for Create Account flow', () => {
             cy.get('.ui-datepicker-buttonpane > button').click()
             cy.get('#pais_nacimiento').select(dataUser.pais[0])
             cy.get('#gender').select(dataUser.genero[0])
-            //cy.get('#email_address').type(dataUser.email[0]) NO DILIGENCIAR CAMPO
             cy.get('#password').type(dataUser.password[0])
             cy.get('#password-confirmation').type(dataUser.password[0])
             //Hacer click en checkbox para aceptar política de privacidad de datos
@@ -104,7 +98,7 @@ describe('Test cases for Create Account flow', () => {
             //Hacer clic en botón "crear una cuenta" para confirmar el registro
             cy.get('button.action.submit.primary').click()
             //Verificar mensaje de error
-            cy.get('#email_address-error').should('exist').should('have.text', 'Este campo es obligatorio.')
+            cy.get('#identificacion-error').should('exist').should('have.text', 'Este campo es obligatorio.')
         })
         // Test case #6: Verificar que la contraseña este oculta por defecto
         it('CRE-006: Verify that the password is hidden by default', () => {
@@ -113,9 +107,7 @@ describe('Test cases for Create Account flow', () => {
             // Hacer clic en el botón de "Registrarse"
             cy.get('.register').click()
             // Rellenar el formulario de registro con datos de prueba
-            cy.get('#firstname').type(dataUser.nombre[0])
-            cy.get('#lastname').type(dataUser.apellido[0])
-            cy.get('#second_lastname').type(dataUser.apellido[1])
+            cy.fillRegisterFormWithRandomData()
             cy.get('#tipo_identificacion').select(dataUser.identification_type[1])
             cy.get('#identificacion').type(dataUser.identification_number[2])
             cy.get('#telephone').type(dataUser.telefono)
@@ -126,7 +118,6 @@ describe('Test cases for Create Account flow', () => {
             cy.get('.ui-datepicker-buttonpane > button').click()
             cy.get('#pais_nacimiento').select(dataUser.pais[0])
             cy.get('#gender').select(dataUser.genero[0])
-            cy.get('#email_address').type(dataUser.email[2])
             cy.get('#password').type(dataUser.password[0]).should('have.attr', 'type', 'password')
             cy.get('#password-confirmation').type(dataUser.password[0]).should('have.attr', 'type', 'password')
         })
@@ -137,9 +128,7 @@ describe('Test cases for Create Account flow', () => {
             // Hacer clic en el botón de "Registrarse"
             cy.get('.register').click()
             // Rellenar el formulario de registro con datos de prueba
-            cy.get('#firstname').type(dataUser.nombre[1])
-            cy.get('#lastname').type(dataUser.apellido[1])
-            cy.get('#second_lastname').type(dataUser.apellido[1])
+            cy.fillRegisterFormWithRandomData()
             cy.get('#tipo_identificacion').select(dataUser.identification_type[1])
             cy.get('#identificacion').type(dataUser.identification_number[3])
             cy.get('#telephone').type(dataUser.telefono)
@@ -150,7 +139,6 @@ describe('Test cases for Create Account flow', () => {
             cy.get('.ui-datepicker-buttonpane > button').click()
             cy.get('#pais_nacimiento').select(dataUser.pais[0])
             cy.get('#gender').select(dataUser.genero[0])
-            cy.get('#email_address').type(dataUser.email[3])
             cy.get('#password').type(dataUser.password[0])
             cy.get('#password-confirmation').type(dataUser.password[0])
             // Hacer clic en el checkbox de "Monstrar contraseña"
@@ -165,9 +153,7 @@ describe('Test cases for Create Account flow', () => {
             // Hacer clic en el botón de "Registrarse"
             cy.get('.register').click()
             // Rellenar el formulario de registro con datos de prueba
-            cy.get('#firstname').type(dataUser.nombre[1])
-            cy.get('#lastname').type(dataUser.apellido[1])
-            cy.get('#second_lastname').type(dataUser.apellido[1])
+            cy.fillRegisterFormWithRandomData()
             cy.get('#tipo_identificacion').select(dataUser.identification_type[1])
             cy.get('#identificacion').type(dataUser.identification_number[3])
             cy.get('#telephone').type(dataUser.telefono)
@@ -178,7 +164,6 @@ describe('Test cases for Create Account flow', () => {
             cy.get('.ui-datepicker-buttonpane > button').click()
             cy.get('#pais_nacimiento').select(dataUser.pais[0])
             cy.get('#gender').select(dataUser.genero[0])
-            cy.get('#email_address').type(dataUser.email[3])
             cy.get('#password').type(dataUser.password[0])
             cy.get('#password-confirmation').type(dataUser.password[1])
             //Hacer click en checkbox para aceptar política de privacidad de datos
@@ -225,9 +210,7 @@ describe('Test cases for Create Account flow', () => {
             // Hacer clic en el botón de "Registrarse"
             cy.get('.register').click()
             // Rellenar el formulario de registro con datos de prueba
-            cy.get('#firstname').type(dataUser.nombre[1])
-            cy.get('#lastname').type(dataUser.apellido[1])
-            cy.get('#second_lastname').type(dataUser.apellido[1])
+            cy.fillRegisterFormWithRandomData()
             cy.get('#tipo_identificacion').select(dataUser.identification_type[1])
             cy.get('#identificacion').type(dataUser.identification_number[3])
             cy.get('#telephone').type(dataUser.telefono)
@@ -238,7 +221,6 @@ describe('Test cases for Create Account flow', () => {
             cy.get('.ui-datepicker-buttonpane > button').click()
             cy.get('#pais_nacimiento').select(dataUser.pais[0])
             cy.get('#gender').select(dataUser.genero[0])
-            cy.get('#email_address').type(dataUser.email[3])
             cy.get('#password').type(dataUser.password[2])
             cy.get('#password-error').should('exist').and('contain', '8')
         })
@@ -249,9 +231,7 @@ describe('Test cases for Create Account flow', () => {
             // Hacer clic en el botón de "Registrarse"
             cy.get('.register').click()
             // Rellenar el formulario de registro con datos de prueba
-            cy.get('#firstname').type(dataUser.nombre[1])
-            cy.get('#lastname').type(dataUser.apellido[1])
-            cy.get('#second_lastname').type(dataUser.apellido[1])
+            cy.fillRegisterFormWithRandomData()
             cy.get('#tipo_identificacion').select(dataUser.identification_type[1])
             cy.get('#identificacion').type(dataUser.identification_number[3])
             cy.get('#telephone').type(dataUser.telefono)
@@ -262,7 +242,6 @@ describe('Test cases for Create Account flow', () => {
             cy.get('.ui-datepicker-buttonpane > button').click()
             cy.get('#pais_nacimiento').select(dataUser.pais[0])
             cy.get('#gender').select(dataUser.genero[0])
-            cy.get('#email_address').type(dataUser.email[3])
             cy.get('#password').type(dataUser.password[3])
             cy.get('#password-error').should('exist').and('contain', '3')
         })
@@ -273,9 +252,7 @@ describe('Test cases for Create Account flow', () => {
             // Hacer clic en el botón de "Registrarse"
             cy.get('.register').click()
             // Rellenar el formulario de registro con datos de prueba
-            cy.get('#firstname').type(dataUser.nombre[1])
-            cy.get('#lastname').type(dataUser.apellido[1])
-            cy.get('#second_lastname').type(dataUser.apellido[1])
+            cy.fillRegisterFormWithRandomData()
             cy.get('#tipo_identificacion').select(dataUser.identification_type[1])
             cy.get('#identificacion').type(dataUser.identification_number[3])
             cy.get('#telephone').type(dataUser.telefono)
@@ -286,7 +263,6 @@ describe('Test cases for Create Account flow', () => {
             cy.get('.ui-datepicker-buttonpane > button').click()
             cy.get('#pais_nacimiento').select(dataUser.pais[0])
             cy.get('#gender').select(dataUser.genero[0])
-            cy.get('#email_address').type(dataUser.email[3])
             cy.get('#password').type(dataUser.password[0])
             cy.get('#password-confirmation').type(dataUser.password[0])
             //Hacer clic en botón "crear una cuenta" para confirmar el registro

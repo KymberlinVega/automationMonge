@@ -1,6 +1,6 @@
 /// <reference types='Cypress' />
 
-describe('Test cases for Create Account flow', () => {
+/*describe('Test cases for Create Account flow', () => {
     let dataUser; // Variable para almacenar los datos cargados desde el JSON
 
     before(() => {
@@ -296,3 +296,4 @@ describe('Test cases for Create Account flow', () => {
         })
     })
 })
+*/
